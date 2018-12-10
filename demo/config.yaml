@@ -1,0 +1,34 @@
+storage: ./storage
+
+listen:
+  - 0.0.0.0:80
+
+auth:
+  gitlab:
+    url: https://git.geektr.cloud
+    publish: $maintainer
+web:
+  enable: true
+  title: GNPM
+  # logo: gnpm.png
+  scope: \@geektr-local
+
+uplinks:
+  npmjs:
+    url: http://registry.npm.taobao.org/
+    cache: false
+
+packages:
+  '@geektr-local/*':
+    access: $all
+    publish: $authenticated
+  '@geektr-private/*':
+    access: $authenticated
+    publish: $authenticated
+  '**':
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+
+logs:
+  - {type: stdout, format: pretty, level: http}
