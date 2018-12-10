@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 docker build \
-  --tag "geektr-cloud/verdaccio:latest" \
+  --tag "geektrcloud/verdaccio:latest" \
   --compress \
   .
 
 tee <<EOF
 =========================
-docker push geektr-cloud/verdaccio
+docker push geektrcloud/verdaccio
 =========================
 EOF
