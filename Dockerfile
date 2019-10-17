@@ -2,6 +2,6 @@ FROM verdaccio/verdaccio:latest
 
 USER root
 
-RUN yarn add verdaccio-gitlab
+RUN npm i verdaccio-gitlab verdaccio-s3-storage
 
 USER $VERDACCIO_USER_UID
