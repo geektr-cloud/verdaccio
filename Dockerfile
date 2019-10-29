@@ -1,7 +1,9 @@
-FROM verdaccio/verdaccio:latest
+FROM verdaccio/verdaccio:4
 
 USER root
 
-RUN npm i verdaccio-gitlab verdaccio-s3-storage
+ENV NODE_ENV=production
+
+RUN yarn install && yarn add verdaccio-gitlab verdaccio-s3-storage
 
 USER $VERDACCIO_USER_UID
