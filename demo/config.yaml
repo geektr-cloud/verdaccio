@@ -3,10 +3,17 @@ storage: ./storage
 listen:
   - 0.0.0.0:80
 
+middlewares:
+  gitlab-oauth:
+    enabled: true
+
 auth:
-  gitlab:
-    url: https://git.geektr.cloud
-    publish: $maintainer
+  gitlab-oauth:
+    group: <group>
+    client-id: <client_id>
+    client-secret: <client_secret>
+    gitlab-host: https://git.geektr.co
+
 web:
   enable: true
   title: GNPM
