@@ -16,7 +16,6 @@ RUN sed -i \
   -e 's/#header--button-logout/#header--button-logout, [data-testid=header--button-logout]/' \
   /opt/verdaccio/node_modules/verdaccio-gitlab-oauth/dist/public/verdaccio-4.js
 
-ADD ./logo.svg /opt/verdaccio/node_modules/@verdaccio/ui-theme/static/
-ADD ./wrapper.sh /
+ADD ./logo.svg ./wrapper.sh /
 
 CMD [ "/wrapper.sh" ]
